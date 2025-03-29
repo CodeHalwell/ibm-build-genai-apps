@@ -1,0 +1,33 @@
+[project]
+name = "1-imagecaption"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bs4>=0.0.2",
+    "gradio>=5.23.1",
+    "langchain>=0.3.21",
+    "requests>=2.32.3",
+    "torch>=2.6.0",
+    "torchaudio>=2.6.0",
+    "torchvision>=0.21.0",
+    "transformers>=4.50.3",
+]
+
+# --- uv Configuration ---
+[tool.uv]
+
+# Define the PyTorch CUDA index for CUDA 12.6
+[[tool.uv.index]]
+name = "pytorch-cuda-126" # Using a more specific name
+# --- Using the URL for CUDA 12.6 ---
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true # Optional: See uv docs. Might help ensure only this index is used for specified packages.
+
+# Tell uv where to find the PyTorch packages
+[tool.uv.sources]
+# Reference the specific index name defined above
+torch = [{ index = "pytorch-cuda-126" }]
+torchaudio = [{ index = "pytorch-cuda-126" }]
+torchvision = [{ index = "pytorch-cuda-126" }]
