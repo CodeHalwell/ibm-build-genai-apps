@@ -37,11 +37,9 @@ GitHub Repo - https://github.com/CodeHalwell/ibm-build-genai-apps
     - Otherwise, if your project is configured for pip installation:
       - Run: pip install .
 
-5. (Optional) Install uv support:
-    - If using Poetry:
-      - Run: poetry add uvicorn
-    - Otherwise:
-      - Run: pip install uvicorn
+5. (Optional) Install uv package manager using uv:
+    - Run: uv run <file.py>
+
 
 ## Usage
 
