@@ -1,15 +1,16 @@
 from flask import Flask, request, render_template
 from flask_cors import CORS
 import json
+from typing import List
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 app = Flask(__name__)
 CORS(app)
 
-model_name = "facebook/blenderbot-400M-distill"
+model_name: str = "facebook/blenderbot-400M-distill"
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-conversation_history = []
+conversation_history: List[str] = []
 
 @app.route('/', methods=['GET'])
 def home():
